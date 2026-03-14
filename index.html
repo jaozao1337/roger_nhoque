@@ -9,10 +9,11 @@
         :root {
             --bg: #0f0f0f;
             --surface: #1a1a1a;
-            --accent: #b87333; /* Cobre */
+            --accent: #b87333; 
             --text-main: #f4f4f4;
             --text-dim: #a0a0a0;
             --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(184, 115, 51, 0.3);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,212 +23,225 @@
             background-color: var(--bg);
             color: var(--text-main);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* Hero Section */
         .hero {
-            height: 80vh;
+            height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(to bottom, rgba(15,15,15,0.4), var(--bg)), 
+            background: linear-gradient(to bottom, rgba(15,15,15,0.7), var(--bg)), 
                         url('https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&q=80&w=2000');
             background-size: cover;
             background-position: center;
-            padding: 20px;
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 10vw, 6rem);
-            font-weight: 700;
-            line-height: 1;
-            margin-bottom: 1rem;
+            font-size: clamp(3rem, 10vw, 5rem);
             color: var(--text-main);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--accent);
+            margin-bottom: 0.5rem;
         }
 
         .container {
-            max-width: 1100px;
-            margin: -100px auto 100px;
+            max-width: 1000px;
+            margin: -50px auto 100px;
             padding: 0 20px;
         }
 
-        /* Cards e Grid */
         .glass-card {
             background: var(--surface);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 3rem;
-            border-radius: 4px;
-            backdrop-filter: blur(10px);
-            margin-bottom: 4rem;
-        }
-
-        .grid-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             color: var(--accent);
+            text-transform: italic;
         }
 
-        /* Técnicas Culinárias Section */
-        .tech-box {
-            background: var(--glass);
-            border-left: 3px solid var(--accent);
-            padding: 2rem;
-            margin: 2rem 0;
+        /* Tabela de Compras Detalhada */
+        .shopping-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.95rem;
         }
 
-        .tech-box h3 {
-            font-size: 0.9rem;
+        .shopping-table th {
+            text-align: left;
+            border-bottom: 2px solid var(--accent);
+            padding: 12px;
+            color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            color: var(--accent);
+            letter-spacing: 1px;
         }
 
-        /* Listas Modernas */
-        .checklist { list-style: none; }
-        .checklist li {
-            padding: 12px 0;
+        .shopping-table td {
+            padding: 12px;
             border-bottom: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            align-items: center;
-        }
-        .checklist li::before {
-            content: "→";
-            margin-right: 15px;
-            color: var(--accent);
         }
 
-        /* Processos */
-        .step-item {
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        .step-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            color: rgba(184, 115, 51, 0.2);
-            position: absolute;
-            top: -30px;
-            left: -20px;
-            z-index: 0;
-        }
-        .step-content { position: relative; z-index: 1; }
-        .step-content h4 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-
-        .price-badge {
-            display: inline-block;
-            padding: 8px 20px;
-            background: var(--accent);
-            color: var(--bg);
+        .total-row {
             font-weight: bold;
-            border-radius: 50px;
-            margin-top: 10px;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* Processos e Erros */
+        .tech-info {
+            background: var(--glass);
+            border-left: 2px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .step { margin-bottom: 2rem; }
+        .step h4 { color: var(--accent); margin-bottom: 0.5rem; }
+
+        .error-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .error-item {
+            background: rgba(255, 0, 0, 0.02);
+            padding: 1rem;
+            border: 1px solid rgba(255, 0, 0, 0.1);
         }
 
         footer {
             text-align: center;
             padding: 4rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
             color: var(--text-dim);
             font-size: 0.8rem;
+            letter-spacing: 2px;
         }
 
-        @media (max-width: 850px) {
-            .grid-info { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 4rem; }
+        @media (max-width: 768px) {
+            .shopping-table { font-size: 0.8rem; }
+            .glass-card { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
 <section class="hero">
-    <p>Authentic Dining</p>
     <h1>Gnocchi & Mignon</h1>
-    <div class="price-badge">Caçador/SC: R$ 130 - R$ 180</div>
+    <p style="color: var(--accent); letter-spacing: 3px;">CAÇADOR / SC - EDITION</p>
 </section>
 
 <div class="container">
+    
     <div class="glass-card">
-        <div class="grid-info">
-            <section>
-                <h2>A Alquimia</h2>
-                <p>O segredo deste prato não reside apenas na qualidade do <strong>Filé Mignon</strong>, mas na maestria das texturas. O bechamel serve como condutor de sabor, unindo a densidade da massa à suculência da carne.</p>
-                
-                <div class="tech-box">
-                    <h3>Reação de Maillard</h3>
-                    <p>Ao selar a carne em levas, garantimos que a temperatura da panela não caia. Isso permite que os aminoácidos e açúcares reajam, criando aquela crosta dourada que é a definição de sabor <em>umami</em>.</p>
-                </div>
-            </section>
-
-            <section>
-                <h2>O Inventário</h2>
-                <ul class="checklist">
-                    <li>1.2kg de Nhoque (Preferencialmente Mandioquinha)</li>
-                    <li>1.0kg de Filé Mignon em tiras finas</li>
-                    <li>1.2L de Leite Integral em temperatura ambiente</li>
-                    <li>100g de Manteiga sem sal</li>
-                    <li>100g de Queijo Parmesão (Cura 12 meses+)</li>
-                    <li>Noz-moscada ralada na hora</li>
-                </ul>
-            </section>
-        </div>
+        <h2>🛒 Lista de Provisões (Para 6 Pessoas)</h2>
+        <table class="shopping-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Especificação</th>
+                    <th>Qtd.</th>
+                    <th>Est. Preço (R$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Filé Mignon ou Alcatra</td>
+                    <td>Corte em tiras (Strogonoff style)</td>
+                    <td>1.0 kg</td>
+                    <td>R$ 75,00</td>
+                </tr>
+                <tr>
+                    <td>Nhoque de Batata</td>
+                    <td>Artesanal / Refrigerado</td>
+                    <td>1.2 kg</td>
+                    <td>R$ 55,00</td>
+                </tr>
+                <tr>
+                    <td>Leite Integral</td>
+                    <td>Tipo A ou Longa Vida</td>
+                    <td>1.2 L</td>
+                    <td>R$ 7,50</td>
+                </tr>
+                <tr>
+                    <td>Manteiga</td>
+                    <td>Com sal ou sem sal (Tablete)</td>
+                    <td>100g</td>
+                    <td>R$ 12,00</td>
+                </tr>
+                <tr>
+                    <td>Queijo Parmesão</td>
+                    <td>Cunha para ralar na hora</td>
+                    <td>100g</td>
+                    <td>R$ 15,00</td>
+                </tr>
+                <tr>
+                    <td>Farinha e Especiarias</td>
+                    <td>Trigo, Noz-moscada, Alho</td>
+                    <td>-</td>
+                    <td>R$ 10,00</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="3">Investimento Total Estimado</td>
+                    <td>R$ 174,50</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 1rem;">
+            *Valores baseados na média dos supermercados de Caçador/SC (Março 2026).
+        </p>
     </div>
 
     <div class="glass-card">
-        <h2>O Processo</h2>
+        <h2>👨‍🍳 Processos Culinários</h2>
         
-        <div class="step-item">
-            <span class="step-number">01</span>
-            <div class="step-content">
-                <h4>O Roux Perfeito</h4>
-                <p>O equilíbrio entre gordura e amido. Cozinhe a manteiga e farinha até que o aroma lembre amêndoas torradas. A proporção áurea é $1:1$ em peso.</p>
-            </div>
+        <div class="step">
+            <h4>1. A Reação de Maillard (A Carne)</h4>
+            <p>Não jogue toda a carne na panela. O segredo da maciez é o choque térmico. Sele em 3 levas. A $140^{\circ}C$ a $165^{\circ}C$, ocorre a caramelização das proteínas. Reserve o suco (deglaçagem automática ocorrerá no molho).</p>
         </div>
 
-        <div class="step-item">
-            <span class="step-number">02</span>
-            <div class="step-content">
-                <h4>Temperagem do Molho</h4>
-                <p>Adicione o leite em fios. O choque térmico controlado evita grumos. Use o batedor de arame em movimentos circulares do centro para fora.</p>
-            </div>
+        <div class="step">
+            <h4>2. A Estrutura do Bechamel (O Roux)</h4>
+            <p>Derreta a manteiga e incorpore a farinha. Cozinhe por 3 minutos até o "cheiro de biscoito". Adicione o leite frio ao roux quente (ou vice-versa) para garantir uma emulsão estável sem grumos.</p>
         </div>
 
-        <div class="step-item">
-            <span class="step-number">03</span>
-            <div class="step-content">
-                <h4>Selo de Qualidade</h4>
-                <p>Aqueça o azeite até o ponto de fumaça. Sele a carne rapidamente. O objetivo é centro rosado e exterior caramelizado.</p>
-            </div>
-        </div>
-
-        <div class="tech-box">
-            <h3>Protocolo de Correção</h3>
-            <p><strong>Molho ralo?</strong> Redução lenta. <strong>Grumos?</strong> Mix de imersão imediato. <strong>Nhoque pesado?</strong> Adicione água do cozimento (rica em amido) para emulsionar o bechamel.</p>
+        <div class="step">
+            <h4>3. Finalização em "Mantecatura"</h4>
+            <p>Ao unir o nhoque ao molho, adicione 50ml da água do cozimento. O amido da água cria um elo entre a gordura do molho e a massa, impedindo que o molho se separe no prato.</p>
         </div>
     </div>
+
+    <div class="glass-card">
+        <h2>⚠️ Protocolos de Erro</h2>
+        <div class="error-grid">
+            <div class="error-item">
+                <strong>Molho "Empelotado":</strong>
+                <p>Causa: Adição rápida de leite. <br>Corretivo: Bata com mixer de imersão ou passe por peneira fina imediatamente.</p>
+            </div>
+            <div class="error-item">
+                <strong>Carne "Borrachuda":</strong>
+                <p>Causa: Perda de temperatura. <br>Corretivo: Reduza o tempo de fogo. Carne de qualidade deve ser selada, não cozida.</p>
+            </div>
+            <div class="error-item">
+                <strong>Nhoque Desmanchando:</strong>
+                <p>Causa: Cozimento excessivo. <br>Corretivo: Retire assim que boiar. O calor residual do molho terminará o processo.</p>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <footer>
-    &copy; 2026 Crafted by JPS. <br>
-    Caçador, Santa Catarina.
+    JOÃO PEDRO SOLAGNA | DIGITAL PORTFOLIO & CULINARY ARTS
 </footer>
 
 </body>
