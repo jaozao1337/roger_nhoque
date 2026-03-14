@@ -3,200 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receita: Nhoque com Bechamel e Carne</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>The Gnocchi Theory | Fine Dining em Casa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #5c1212; /* Vinho */
-            --secondary: #fdf5e6; /* Creme */
-            --accent: #d4af37; /* Dourado */
-            --text: #2d2d2d;
-            --white: #ffffff;
+            --bg: #0f0f0f;
+            --surface: #1a1a1a;
+            --accent: #b87333; /* Cobre */
+            --text-main: #f4f4f4;
+            --text-dim: #a0a0a0;
+            --glass: rgba(255, 255, 255, 0.03);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--secondary);
-            color: var(--text);
-            margin: 0;
-            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        header {
-            background-color: var(--primary);
-            color: var(--white);
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 4rem 1rem;
-            border-bottom: 5px solid var(--accent);
+            background: linear-gradient(to bottom, rgba(15,15,15,0.4), var(--bg)), 
+                        url('https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
         }
 
-        h1 {
+        .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin: 0;
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent);
         }
 
         .container {
-            max-width: 900px;
-            margin: -50px auto 50px;
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 1100px;
+            margin: -100px auto 100px;
+            padding: 0 20px;
         }
 
-        .section { margin-bottom: 2rem; }
+        /* Cards e Grid */
+        .glass-card {
+            background: var(--surface);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem;
+            border-radius: 4px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 4rem;
+        }
+
+        .grid-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
 
         h2 {
-            color: var(--primary);
-            border-bottom: 2px solid var(--accent);
-            display: inline-block;
-            margin-bottom: 1rem;
             font-family: 'Playfair Display', serif;
-        }
-
-        .price-tag {
-            background: #e9f5db;
-            border-left: 5px solid #4caf50;
-            padding: 1rem;
+            font-size: 2.5rem;
             margin-bottom: 2rem;
-            font-weight: 600;
+            color: var(--accent);
         }
 
-        .shopping-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            background: #f9f9f9;
-            padding: 1.5rem;
-            border-radius: 10px;
+        /* Técnicas Culinárias Section */
+        .tech-box {
+            background: var(--glass);
+            border-left: 3px solid var(--accent);
+            padding: 2rem;
+            margin: 2rem 0;
         }
 
-        .step {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
+        .tech-box h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            color: var(--accent);
         }
 
-        .step-number {
-            background: var(--primary);
-            color: var(--white);
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+        /* Listas Modernas */
+        .checklist { list-style: none; }
+        .checklist li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            flex-shrink: 0;
+        }
+        .checklist li::before {
+            content: "→";
+            margin-right: 15px;
+            color: var(--accent);
+        }
+
+        /* Processos */
+        .step-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: rgba(184, 115, 51, 0.2);
+            position: absolute;
+            top: -30px;
+            left: -20px;
+            z-index: 0;
+        }
+        .step-content { position: relative; z-index: 1; }
+        .step-content h4 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+        .price-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--accent);
+            color: var(--bg);
             font-weight: bold;
+            border-radius: 50px;
+            margin-top: 10px;
         }
 
-        .error-box {
-            background: #fff0f0;
-            border: 1px dashed #ff4d4d;
-            padding: 1.5rem;
-            border-radius: 10px;
-        }
-
-        .footer {
+        footer {
             text-align: center;
-            padding: 2rem;
-            color: #777;
-            font-size: 0.9rem;
+            padding: 4rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-dim);
+            font-size: 0.8rem;
         }
 
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .container { margin: 20px 10px; }
+        @media (max-width: 850px) {
+            .grid-info { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 4rem; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Nhoque ao Bechamel & Tiras de Mignon</h1>
-    <p>Uma experiência gastronômica para 6 pessoas</p>
-</header>
+<section class="hero">
+    <p>Authentic Dining</p>
+    <h1>Gnocchi & Mignon</h1>
+    <div class="price-badge">Caçador/SC: R$ 130 - R$ 180</div>
+</section>
 
 <div class="container">
-    <div class="section price-tag">
-        📍 <strong>Custo Estimado em Caçador/SC:</strong> R$ 130,00 - R$ 180,00 <br>
-        <small>Média baseada nos preços locais para 6 porções fartas.</small>
-    </div>
+    <div class="glass-card">
+        <div class="grid-info">
+            <section>
+                <h2>A Alquimia</h2>
+                <p>O segredo deste prato não reside apenas na qualidade do <strong>Filé Mignon</strong>, mas na maestria das texturas. O bechamel serve como condutor de sabor, unindo a densidade da massa à suculência da carne.</p>
+                
+                <div class="tech-box">
+                    <h3>Reação de Maillard</h3>
+                    <p>Ao selar a carne em levas, garantimos que a temperatura da panela não caia. Isso permite que os aminoácidos e açúcares reajam, criando aquela crosta dourada que é a definição de sabor <em>umami</em>.</p>
+                </div>
+            </section>
 
-    <div class="section">
-        <h2>🛒 Lista de Compras</h2>
-        <div class="shopping-list">
-            <div>
-                <strong>Massa e Carne</strong>
-                <ul>
-                    <li>1,2 kg de Nhoque</li>
-                    <li>1 kg de Filé Mignon/Alcatra</li>
+            <section>
+                <h2>O Inventário</h2>
+                <ul class="checklist">
+                    <li>1.2kg de Nhoque (Preferencialmente Mandioquinha)</li>
+                    <li>1.0kg de Filé Mignon em tiras finas</li>
+                    <li>1.2L de Leite Integral em temperatura ambiente</li>
+                    <li>100g de Manteiga sem sal</li>
+                    <li>100g de Queijo Parmesão (Cura 12 meses+)</li>
+                    <li>Noz-moscada ralada na hora</li>
                 </ul>
-            </div>
-            <div>
-                <strong>Laticínios</strong>
-                <ul>
-                    <li>1,2L Leite Integral</li>
-                    <li>100g Manteiga</li>
-                    <li>100g Queijo Parmesão</li>
-                </ul>
-            </div>
-            <div>
-                <strong>Despensa</strong>
-                <ul>
-                    <li>Farinha de Trigo</li>
-                    <li>Noz-moscada</li>
-                    <li>Alho, Sal e Pimenta</li>
-                </ul>
-            </div>
+            </section>
         </div>
     </div>
 
-    <div class="section">
-        <h2>👨‍🍳 Modo de Preparo</h2>
+    <div class="glass-card">
+        <h2>O Processo</h2>
         
-        <div class="step">
-            <div class="step-number">1</div>
-            <div><strong>Selar a Carne:</strong> Em fogo alto, sele as tiras de carne em pequenas levas com azeite. Tempere com sal e pimenta apenas no final. Reserve.</div>
+        <div class="step-item">
+            <span class="step-number">01</span>
+            <div class="step-content">
+                <h4>O Roux Perfeito</h4>
+                <p>O equilíbrio entre gordura e amido. Cozinhe a manteiga e farinha até que o aroma lembre amêndoas torradas. A proporção áurea é $1:1$ em peso.</p>
+            </div>
         </div>
 
-        <div class="step">
-            <div class="step-number">2</div>
-            <div><strong>O Roux:</strong> Na mesma panela, derreta 5 colheres de manteiga e misture 5 colheres de farinha. Cozinhe por 2 minutos mexendo sempre.</div>
+        <div class="step-item">
+            <span class="step-number">02</span>
+            <div class="step-content">
+                <h4>Temperagem do Molho</h4>
+                <p>Adicione o leite em fios. O choque térmico controlado evita grumos. Use o batedor de arame em movimentos circulares do centro para fora.</p>
+            </div>
         </div>
 
-        <div class="step">
-            <div class="step-number">3</div>
-            <div><strong>O Molho:</strong> Adicione o leite aos poucos, batendo com um fouet. Quando engrossar, junte o parmesão e a noz-moscada.</div>
+        <div class="step-item">
+            <span class="step-number">03</span>
+            <div class="step-content">
+                <h4>Selo de Qualidade</h4>
+                <p>Aqueça o azeite até o ponto de fumaça. Sele a carne rapidamente. O objetivo é centro rosado e exterior caramelizado.</p>
+            </div>
         </div>
 
-        <div class="step">
-            <div class="step-number">4</div>
-            <div><strong>Cozimento:</strong> Cozinhe o nhoque em água fervente. Retirou da água? Jogue direto no molho quente.</div>
-        </div>
-
-        <div class="step">
-            <div class="step-number">5</div>
-            <div><strong>Finalização:</strong> Adicione a carne ao molho com a massa, misture levemente e sirva imediatamente.</div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>⚠️ Possíveis Erros e Como Corrigir</h2>
-        <div class="error-box">
-            <p><strong>O molho empelotou:</strong> Não desespere! Passe o molho por uma peneira fina ou bata rapidamente no liquidificador. Volte para a panela e continue.</p>
-            <p><strong>A carne soltou muita água:</strong> Provavelmente você colocou muita carne de uma vez. Da próxima, sele em porções menores. Para salvar agora: retire a carne, deixe o líquido reduzir na panela e volte a carne depois.</p>
-            <p><strong>O molho ficou ralo:</strong> Deixe cozinhar um pouco mais em fogo baixo ou adicione um pouco mais de queijo parmesão ralado.</p>
+        <div class="tech-box">
+            <h3>Protocolo de Correção</h3>
+            <p><strong>Molho ralo?</strong> Redução lenta. <strong>Grumos?</strong> Mix de imersão imediato. <strong>Nhoque pesado?</strong> Adicione água do cozimento (rica em amido) para emulsionar o bechamel.</p>
         </div>
     </div>
 </div>
 
-<div class="footer">
-    Desenvolvido com maestria para João Pedro Solagna.
-</div>
+<footer>
+    &copy; 2026 Crafted by JPS. <br>
+    Caçador, Santa Catarina.
+</footer>
 
 </body>
 </html>
