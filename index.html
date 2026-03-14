@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Gnocchi Theory | Fine Dining em Casa</title>
+    <title>The Gnocchi Theory | João Pedro Solagna</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -32,7 +32,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(to bottom, rgba(15,15,15,0.7), var(--bg)), 
+            background: linear-gradient(to bottom, rgba(15,15,15,0.8), var(--bg)), 
                         url('https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&q=80&w=2000');
             background-size: cover;
             background-position: center;
@@ -40,7 +40,7 @@
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 10vw, 5rem);
+            font-size: clamp(2.5rem, 8vw, 5rem);
             color: var(--text-main);
             margin-bottom: 0.5rem;
         }
@@ -65,15 +65,12 @@
             font-size: 2rem;
             margin-bottom: 1.5rem;
             color: var(--accent);
-            text-transform: italic;
         }
 
-        /* Tabela de Compras Detalhada */
         .shopping-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 1rem;
-            font-size: 0.95rem;
         }
 
         .shopping-table th {
@@ -82,21 +79,22 @@
             padding: 12px;
             color: var(--accent);
             text-transform: uppercase;
+            font-size: 0.8rem;
             letter-spacing: 1px;
         }
 
         .shopping-table td {
             padding: 12px;
             border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.95rem;
         }
 
         .total-row {
             font-weight: bold;
             color: var(--accent);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
-        /* Processos e Erros */
         .tech-info {
             background: var(--glass);
             border-left: 2px solid var(--accent);
@@ -105,30 +103,35 @@
         }
 
         .step { margin-bottom: 2rem; }
-        .step h4 { color: var(--accent); margin-bottom: 0.5rem; }
+        .step h4 { color: var(--accent); margin-bottom: 0.5rem; font-size: 1.2rem; }
 
         .error-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
 
         .error-item {
-            background: rgba(255, 0, 0, 0.02);
-            padding: 1rem;
-            border: 1px solid rgba(255, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
         }
+
+        .error-item strong { color: #ff6b6b; display: block; margin-bottom: 5px; }
 
         footer {
             text-align: center;
             padding: 4rem;
             color: var(--text-dim);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         @media (max-width: 768px) {
-            .shopping-table { font-size: 0.8rem; }
+            .shopping-table { font-size: 0.75rem; }
+            .hero { height: 40vh; }
             .glass-card { padding: 1.5rem; }
         }
     </style>
@@ -137,55 +140,55 @@
 
 <section class="hero">
     <h1>Gnocchi & Mignon</h1>
-    <p style="color: var(--accent); letter-spacing: 3px;">CAÇADOR / SC - EDITION</p>
+    <p style="color: var(--accent); letter-spacing: 3px; font-weight: 600;">CAÇADOR / SC - CULINARY EDITION</p>
 </section>
 
 <div class="container">
     
     <div class="glass-card">
-        <h2>🛒 Lista de Provisões (Para 6 Pessoas)</h2>
+        <h2>🛒 Inventário de Provisões</h2>
         <table class="shopping-table">
             <thead>
                 <tr>
                     <th>Item</th>
                     <th>Especificação</th>
                     <th>Qtd.</th>
-                    <th>Est. Preço (R$)</th>
+                    <th>Est. Preço</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Filé Mignon ou Alcatra</td>
-                    <td>Corte em tiras (Strogonoff style)</td>
+                    <td>Corte em tiras finas</td>
                     <td>1.0 kg</td>
                     <td>R$ 75,00</td>
                 </tr>
                 <tr>
                     <td>Nhoque de Batata</td>
-                    <td>Artesanal / Refrigerado</td>
+                    <td>Artesanal Refrigerado</td>
                     <td>1.2 kg</td>
                     <td>R$ 55,00</td>
                 </tr>
                 <tr>
                     <td>Leite Integral</td>
-                    <td>Tipo A ou Longa Vida</td>
+                    <td>Fresco ou Longa Vida</td>
                     <td>1.2 L</td>
                     <td>R$ 7,50</td>
                 </tr>
                 <tr>
                     <td>Manteiga</td>
-                    <td>Com sal ou sem sal (Tablete)</td>
+                    <td>Tablete de alta qualidade</td>
                     <td>100g</td>
                     <td>R$ 12,00</td>
                 </tr>
                 <tr>
                     <td>Queijo Parmesão</td>
-                    <td>Cunha para ralar na hora</td>
+                    <td>Cunha (evite o de saquinho)</td>
                     <td>100g</td>
                     <td>R$ 15,00</td>
                 </tr>
                 <tr>
-                    <td>Farinha e Especiarias</td>
+                    <td>Básicos</td>
                     <td>Trigo, Noz-moscada, Alho</td>
                     <td>-</td>
                     <td>R$ 10,00</td>
@@ -196,44 +199,44 @@
                 </tr>
             </tbody>
         </table>
-        <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 1rem;">
-            *Valores baseados na média dos supermercados de Caçador/SC (Março 2026).
+        <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 1.5rem; font-style: italic;">
+            *Estimativa baseada nos principais mercados de Caçador/SC (Março 2026).
         </p>
     </div>
 
     <div class="glass-card">
-        <h2>👨‍🍳 Processos Culinários</h2>
+        <h2>👨‍Chef Process & Techniques</h2>
         
         <div class="step">
-            <h4>1. A Reação de Maillard (A Carne)</h4>
-            <p>Não jogue toda a carne na panela. O segredo da maciez é o choque térmico. Sele em 3 levas. A $140^{\circ}C$ a $165^{\circ}C$, ocorre a caramelização das proteínas. Reserve o suco (deglaçagem automática ocorrerá no molho).</p>
+            <h4>1. A Reação de Maillard (Proteína)</h4>
+            <p>O segredo da maciez é o choque térmico. Sele a carne em 3 levas para não baixar a temperatura da panela. Entre 140°C e 165°C ocorre a caramelização perfeita. Reserve o suco da carne para o molho.</p>
         </div>
 
         <div class="step">
-            <h4>2. A Estrutura do Bechamel (O Roux)</h4>
-            <p>Derreta a manteiga e incorpore a farinha. Cozinhe por 3 minutos até o "cheiro de biscoito". Adicione o leite frio ao roux quente (ou vice-versa) para garantir uma emulsão estável sem grumos.</p>
+            <h4>2. A Estrutura do Bechamel (Roux)</h4>
+            <p>Crie o Roux fundindo manteiga e farinha (proporção 1:1). Cozinhe até exalar aroma de amêndoas. Adicione o leite aos poucos com batedor de arame para uma textura de seda.</p>
         </div>
 
         <div class="step">
-            <h4>3. Finalização em "Mantecatura"</h4>
-            <p>Ao unir o nhoque ao molho, adicione 50ml da água do cozimento. O amido da água cria um elo entre a gordura do molho e a massa, impedindo que o molho se separe no prato.</p>
+            <h4>3. Mantecatura Final</h4>
+            <p>Una o nhoque ao molho com 50ml da água do cozimento. O amido emulsiona a gordura, criando uma aderência perfeita entre a massa e o bechamel.</p>
         </div>
     </div>
 
     <div class="glass-card">
-        <h2>⚠️ Protocolos de Erro</h2>
+        <h2>⚠️ Protocolos de Emergência</h2>
         <div class="error-grid">
             <div class="error-item">
-                <strong>Molho "Empelotado":</strong>
-                <p>Causa: Adição rápida de leite. <br>Corretivo: Bata com mixer de imersão ou passe por peneira fina imediatamente.</p>
+                <strong>Molho Empelotado</strong>
+                <p>Causa: Leite adicionado rápido demais. <br>Solução: Mixer de imersão ou peneira fina imediatamente.</p>
             </div>
             <div class="error-item">
-                <strong>Carne "Borrachuda":</strong>
-                <p>Causa: Perda de temperatura. <br>Corretivo: Reduza o tempo de fogo. Carne de qualidade deve ser selada, não cozida.</p>
+                <strong>Carne Rígida</strong>
+                <p>Causa: Excesso de tempo no fogo. <br>Solução: O mignon deve ser apenas selado. O centro deve permanecer rosado.</p>
             </div>
             <div class="error-item">
-                <strong>Nhoque Desmanchando:</strong>
-                <p>Causa: Cozimento excessivo. <br>Corretivo: Retire assim que boiar. O calor residual do molho terminará o processo.</p>
+                <strong>Massa Pesada</strong>
+                <p>Causa: Cozimento longo. <br>Solução: O nhoque boiou? Está pronto. Retire na hora.</p>
             </div>
         </div>
     </div>
@@ -241,7 +244,7 @@
 </div>
 
 <footer>
-    JOÃO PEDRO SOLAGNA | DIGITAL PORTFOLIO & CULINARY ARTS
+    JOÃO PEDRO SOLAGNA | DIGITAL PORTFOLIO 2026
 </footer>
 
 </body>
